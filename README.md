@@ -2,7 +2,9 @@
 
 《三角洲行动》「骇爪的网上冲浪」活动中，哈夫克集团网站的非官方前端复刻。
 
-[访问网站](https://zengyiqian2014-boop.github.io/haavk/)
+源码和发布产物已上传。GitHub 连接未获 Pages 设置权限（API 返回 403），需在 [Pages 设置](https://github.com/zengyiqian2014-boop/haavk/settings/pages) 中选择 **Deploy from a branch → gh-pages → / (root) → Save**。
+
+启用后的访问地址：<https://zengyiqian2014-boop.github.io/haavk/>
 
 ![网站首页](docs/qa/about.png)
 

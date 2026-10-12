@@ -6,6 +6,8 @@
 
 功能与响应式检查通过。视觉检查完成，适合交付第一版。人物、Logo、图灵砖属于参考重绘，**不属于逐像素还原**；原始视频未提供，动画为重新设计。
 
+发布状态：源码已推送 `main`，生产构建已推送 `gh-pages`。创建 GitHub Pages 的 API 返回 `403 Resource not accessible by integration`，当前公开网址返回 404。需要仓库拥有者在 Pages 设置选择 `gh-pages / (root)`；尚未进行线上网站验收。
+
 ## 验证环境
 
 - 本地 Chromium，无头浏览器，通过 Python Playwright 实际加载与操作。
