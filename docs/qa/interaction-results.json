@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:4174/haavk/",
+  "checks": [
+    "Three hero slides and manual controls",
+    "Employee profile and Escape close",
+    "Forum reply escapes markup; replies and likes persist",
+    "Compose, thread navigation and mark all read",
+    "Product banners, stats, favorites and purchase limits persist",
+    "Wanted clue form and persisted submitted state",
+    "All five surfaces at 360×800: no horizontal overflow or broken images",
+    "All five surfaces at 390×844: no horizontal overflow or broken images",
+    "All five surfaces at 768×1024: no horizontal overflow or broken images",
+    "All five surfaces at 1280×889: no horizontal overflow or broken images",
+    "All five surfaces at 1920×1080: no horizontal overflow or broken images",
+    "Mobile product drawer fits and closes",
+    "No browser JavaScript errors or HTTP resource failures"
+  ],
+  "errors": []
+}
