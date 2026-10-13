@@ -37,7 +37,7 @@ Chromium 实测通过：
 - MHS / HVK-2 / 图灵砖三张横幅与原裁切图逐像素一致。
 - HLS2 / HMP / HVK2 / 突击手四条商品行与原裁切图逐像素一致。
 - H09 / MHS / HLS-2 / HMP / Hvk-2 / 突击手六个详情面板与各自原裁切图逐像素一致。
-- 详情关闭、收藏、横竖屏点击、原横幅轮播通过。
+- 详情关闭、收藏、横竖屏点击、原横幅轮播通过；横屏时可滚动查看较长详情的底部。
 - H09 已售罄、HVK-2 灰色购买状态保留；其他商品本地演示采购限额与刷新持久化通过。
 
 [装备页截图](docs/qa-original/equipment-original-overview.png) · [结果](docs/qa-original/equipment-results.json) · [验证脚本](scripts/verify-equipment.py)

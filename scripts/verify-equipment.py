@@ -45,6 +45,7 @@ with sync_playwright() as p:
     page.locator('[data-action="banner"][data-index="0"]').click()
     page.locator('.product-list').evaluate('(el)=>el.scrollTop=420')
     page.mouse.move(1270,800)
+    page.wait_for_timeout(3500)  # Let the actual favorite feedback finish before capture.
     page.screenshot(path=str(OUT/'equipment-original-overview.png'))
     for width,height in [(390,844),(844,390)]:
         page.set_viewport_size({'width':width,'height':height})
@@ -54,9 +55,12 @@ with sync_playwright() as p:
             box=page.locator('.original-equipment-modal').bounding_box()
             assert abs(box['width']-402*width/1280)<1
             assert box['x']>=0 and box['x']+box['width']<=width+1
+            page.locator('.original-equipment-backdrop').evaluate('(el)=>el.scrollTop=el.scrollHeight')
+            box=page.locator('.original-equipment-modal').bounding_box()
+            assert box['y']+box['height']<=height+1,(id,width,'detail bottom unreachable')
             page.get_by_role('button',name='关闭').click()
         assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
-    checks.append('Portrait and landscape: six details preserve scale and remain clickable')
+    checks.append('Portrait and landscape: six details preserve scale, remain clickable and scroll fully into view')
     expect(page.locator('[data-action="buy"][data-id="h09"]')).to_be_disabled()
     expect(page.locator('[data-action="buy"][data-id="hvk"]')).to_be_disabled()
     page.locator('[data-action="buy"][data-id="hls"]').click()

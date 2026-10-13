@@ -4,7 +4,7 @@
     "All three banners match supplied original crops pixel-for-pixel",
     "Four complete product rows match original crops pixel-for-pixel",
     "All six named detail panels match original crops; favorite and close work",
-    "Portrait and landscape: six details preserve scale and remain clickable",
+    "Portrait and landscape: six details preserve scale, remain clickable and scroll fully into view",
     "Original unavailable states and purchase limit persist correctly",
     "Original banner autoplay advances"
   ]
