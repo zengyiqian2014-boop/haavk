@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "checks": [
+    "All three banners match supplied original crops pixel-for-pixel",
+    "Four complete product rows match original crops pixel-for-pixel",
+    "All six named detail panels match original crops; favorite and close work",
+    "Portrait and landscape: six details preserve scale and remain clickable",
+    "Original unavailable states and purchase limit persist correctly",
+    "Original banner autoplay advances"
+  ]
+}

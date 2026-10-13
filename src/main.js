@@ -44,6 +44,8 @@ const save = () => {
     localStorage.setItem(storageKey, JSON.stringify(state));
   } catch {}
 };
+const orderCount = (p) =>
+  Math.max(p.initialCount || 0, state.orders[p.id] || 0);
 const allThreads = () => [...state.posts, ...threads];
 const threadById = (id) => allThreads().find((x) => x.id === id);
 const repliesFor = (t) => [...t.replies, ...(state.replies[t.id] || [])];
@@ -68,7 +70,7 @@ function avatar(type = "") {
   return `<span class="avatar">${original ? `<img src="${asset(`avatar-${type}.png`)}" alt="">` : ""}</span>`;
 }
 function header(page) {
-  return `<header class="site-header ${page === "about" ? "original-header" : ""}"><a href="#about" class="brand" aria-label="哈夫克集团首页"><span class="brand-image" role="img" aria-label="HAAVK"></span></a><nav aria-label="主导航">${[
+  return `<header class="site-header ${["about", "solutions"].includes(page) ? "original-header" : ""}"><a href="#about" class="brand" aria-label="哈夫克集团首页"><span class="brand-image" role="img" aria-label="HAAVK"></span></a><nav aria-label="主导航">${[
     ["about", "关于我们"],
     ["forum", "员工论坛"],
     ["solutions", "解决方案"],
@@ -172,25 +174,28 @@ const shopSidebar = () =>
     [["truck", "军工品质", "哈夫克制品总能经受战火的考验"]],
   );
 function bannerMarkup() {
-  return `<img class="original-product-banner" src="${asset("banner-hvk-original.png")}" alt="HVK-2防弹护甲，优秀员工最好的勋章">`;
+  return `${banners.map((b, i) => `<img class="original-product-banner ${i === currentBanner ? "active" : ""}" src="${asset(b.image)}" alt="${b.title}：${b.subtitle}" width="909" height="169">`).join("")}${dots(banners, currentBanner, "banner")}`;
+}
+function productRow(p) {
+  const count = orderCount(p);
+  const disabled = count >= p.limit || p.available === false;
+  const label = count >= p.limit ? "已售罄" : "购买";
+  if (p.rowImage)
+    return `<article class="product-row original-product-row" data-product-id="${p.id}"><img class="original-row-image" src="${asset(p.rowImage)}" alt="${p.name}，售价${p.price}，${p.desc}" width="889" height="130"><h2 class="sr-only">${p.name}</h2><button class="original-row-picture" data-action="product" data-id="${p.id}" aria-label="查看${p.name}详情"></button><button class="original-row-detail" data-action="product" data-id="${p.id}" aria-label="${p.name}物品详情"></button>${count ? `<span class="original-row-count" style="left:${p.countLeft}px">限购：${count}/${p.limit}</span>` : ""}<button class="original-row-buy ${count >= p.limit ? "sold-out" : ""}" data-action="buy" data-id="${p.id}" ${disabled ? "disabled" : ""} aria-label="${label}${p.name}">${count >= p.limit ? label : '<span class="sr-only">' + label + "</span>"}</button></article>`;
+  return `<article class="product-row" data-product-id="${p.id}"><button class="product-picture" data-action="product" data-id="${p.id}" aria-label="查看${p.name}详情"><img src="${asset(p.image)}" alt="${p.name}" loading="lazy"></button><div class="product-description"><h2>${p.name}<span>限购：${count}/${p.limit}</span></h2><p>${p.desc}</p><button class="detail-link" data-action="product" data-id="${p.id}">物品详情 ${icon("caret-double-right")}</button></div><div class="product-buy"><span>${icon("coins")} ${p.price}</span><button class="primary" data-action="buy" data-id="${p.id}" ${disabled ? "disabled" : ""}>${label}</button></div></article>`;
 }
 function solutions() {
-  return `<main class="interior solutions-page">${shopSidebar()}<section class="solutions-content"><div class="product-banner" aria-roledescription="轮播" aria-label="产品宣传">${bannerMarkup()}</div><div class="product-list">${products
-    .map((p) => {
-      const count = state.orders[p.id] || 0;
-      return `<article class="product-row"><button class="product-picture" data-action="product" data-id="${p.id}" aria-label="查看${p.name}详情"><img src="${asset(p.image)}" alt="${p.name}" loading="lazy"></button><div class="product-description"><h2>${p.name}<span>限购：${count}/${p.limit}</span></h2><p>${p.desc}</p><button class="detail-link" data-action="product" data-id="${p.id}">物品详情 ${icon("caret-double-right")}</button></div><div class="product-buy"><span>${icon("coins")} ${p.price.toLocaleString("en-US").replaceAll(",", "")}</span><button class="primary" data-action="buy" data-id="${p.id}" ${count >= p.limit ? "disabled" : ""}>${count >= p.limit ? "已售罄" : "购买"}</button></div></article>`;
-    })
-    .join("")}</div></section></main>`;
+  return `<main class="original-solutions" aria-label="解决方案"><img class="solutions-original-shell" src="${asset("solutions-shell-original.png")}" alt="" width="1280" height="810"><div class="sr-only">${shopSidebar()}</div><section class="solutions-original-content"><div class="product-banner" aria-roledescription="轮播" aria-label="产品宣传">${bannerMarkup()}</div><div class="product-list">${products.map(productRow).join("")}</div></section></main>`;
 }
 function setBanner(i) {
   currentBanner = i;
-  const el = $(".product-banner");
-  if (el) {
-    el.innerHTML = bannerMarkup();
-    el.classList.remove("banner-enter");
-    void el.offsetWidth;
-    el.classList.add("banner-enter");
-  }
+  document
+    .querySelectorAll(".original-product-banner")
+    .forEach((el, j) => el.classList.toggle("active", i === j));
+  document.querySelectorAll('[data-action="banner"]').forEach((el, j) => {
+    el.classList.toggle("active", i === j);
+    el.setAttribute("aria-pressed", String(i === j));
+  });
 }
 function wanted() {
   return `<main class="interior wanted-page">${sidebar("寻人启事", "<p>为保障集团员工与阿萨拉地区居民安全，哈夫克集团对部分失联人员持续加以特别关注。<br>集团员工或社会人士如能提供这些失联人士的有效信息，集团会发放合理的奖励。</p><p>我们相信，每一位失联人员都有回家的权利。让我们一起献出爱心，伸出援手，帮他们早日回家。</p><p>哈夫克集团保留对“回家”的全部解释权。</p>")}<section class="wanted-cards" aria-label="失联人员"><article class="wanted-card"><div class="wanted-tag">不善言语　神出鬼没</div><img src="${asset("wanted-h42-original.png")}" alt="H42失联人员肖像"><div class="wanted-name"><h2>H42</h2><p>需返回集团接受脑机康复训练</p></div><div class="wanted-reward"><span>悬赏哈夫币总额</span><strong class="number">99,999,999</strong><button data-action="clue" data-id="h42" ${state.clues.h42 ? "disabled" : ""}>${state.clues.h42 ? "已提交" : "提供线索"}</button></div></article><article class="wanted-card"><div class="wanted-tag">精瘦结实　暴躁冲动</div><img src="${asset("wanted-zoya-original.png")}" alt="佐娅失联人员肖像"><div class="wanted-name"><h2>佐娅</h2><p>亟需集团帮助继续其科研工作</p></div><div class="wanted-reward"><span>举报奖励</span><strong>脑机实验受试资格</strong><button data-action="clue" data-id="zoya" ${state.clues.zoya ? "disabled" : ""}>${icon("warning")} ${state.clues.zoya ? "已提交" : "提供线索"}</button></div></article></section></main>`;
@@ -223,6 +228,10 @@ function route() {
       heroTimer = setInterval(() => {
         if (!document.hidden) setHero((currentHero + 1) % 3);
       }, 7000);
+    if (page === "solutions")
+      bannerTimer = setInterval(() => {
+        if (!document.hidden) setBanner((currentBanner + 1) % banners.length);
+      }, 6500);
   }
 }
 function modal(content, drawer = false) {
@@ -240,16 +249,24 @@ function closeModal(restore = true) {
 function productModal(id) {
   const p = products.find((x) => x.id === id);
   if (!p) return;
+  if (p.detailImage) {
+    focusBeforeModal = document.activeElement;
+    $("#overlay-root").innerHTML =
+      `<div class="modal-backdrop original-equipment-backdrop"><div class="original-equipment-stage"><section class="modal original-equipment-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-product-id="${p.id}" style="top:${p.detailTop}px;height:${p.detailHeight}px"><img class="original-equipment-image" src="${asset(p.detailImage)}" width="402" height="${p.detailHeight}" alt="${p.detailName}原版详情：估价${p.referenceValue}，重量${p.weight}KG${p.durability ? `，耐久度${p.durability}` : ""}"><h2 id="modal-title" class="sr-only">${p.detailName}</h2><div class="sr-only"><span class="durability">${p.durability ? `${p.durability.toFixed(1)}/${p.durability.toFixed(1)}` : ""}</span>${p.stats.map(([k, v]) => `<p>${k}：${v}</p>`).join("")}</div><button class="modal-close original-panel-close" data-action="close" aria-label="关闭"></button><button class="original-panel-favorite" data-action="favorite" data-id="${p.id}" aria-label="收藏物品" aria-pressed="${state.favorites.includes(id)}"></button><button class="original-panel-source" data-action="source" data-id="${p.id}" aria-label="查看${p.name}来源"></button></section></div></div>`;
+    document.body.classList.add("modal-open");
+    setTimeout(() => $(".original-panel-close")?.focus(), 20);
+    return;
+  }
   modal(
-    `<div class="drawer-title"><span class="rarity rarity-${p.level}">${icon("diamonds-four")}</span><h2 id="modal-title">${p.name}</h2></div><div class="drawer-image"><span class="drawer-price">${icon("coins")} ${p.price.toLocaleString()}</span><button class="favorite" data-action="favorite" data-id="${p.id}" aria-label="收藏物品" aria-pressed="${state.favorites.includes(id)}">${icon("star")}</button><img src="${asset(p.image)}" alt="${p.name}"><span class="weight">${p.weight}KG ${icon("squares-four")}</span></div><div class="drawer-body"><button class="source-button" data-action="source" data-id="${p.id}">${icon("magnifying-glass")} 来源</button>${p.durability ? `<div class="durability"><span>耐久度</span><strong>${p.durability.toFixed(1)}/${p.durability.toFixed(1)}</strong><div></div></div>` : ""}<dl>${p.stats.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl><p>${p.detail}</p></div>`,
-    true,
+    `<h2 id="modal-title">${p.name}</h2><img class="original-card-preview" src="${asset("banner-turing-original.png")}" alt="图灵砖原版宣传图"><p>${p.desc}</p><p>售价：${p.price} 哈夫币</p>`,
   );
 }
+
 function buyModal(id) {
   const p = products.find((x) => x.id === id);
-  if (!p || (state.orders[id] || 0) >= p.limit) return;
+  if (!p || orderCount(p) >= p.limit || p.available === false) return;
   modal(
-    `<span class="modal-eyebrow">HAAVK / PROCUREMENT</span><h2 id="modal-title">装备采购</h2><div class="order-summary"><img src="${asset(p.image)}" alt="${p.name}"><div><h3>${p.name}</h3><p>${icon("coins")} ${p.price.toLocaleString()} 哈夫币</p><small>数量 1 · 剩余可购 ${p.limit - (state.orders[id] || 0)}</small></div></div><p class="form-note">本次采购将保存为浏览器内的演示订单，不涉及真实支付或游戏道具发放。</p><div class="modal-actions"><button class="secondary" data-action="close">取消</button><button class="primary" data-action="confirm-buy" data-id="${id}">确认采购</button></div>`,
+    `<span class="modal-eyebrow">HAAVK / PROCUREMENT</span><h2 id="modal-title">装备采购</h2><div class="order-summary"><img src="${asset(p.image)}" alt="${p.name}"><div><h3>${p.name}</h3><p>${icon("coins")} ${p.price.toLocaleString()} 哈夫币</p><small>数量 1 · 剩余可购 ${p.limit - orderCount(p)}</small></div></div><p class="form-note">本次采购将保存为浏览器内的演示订单，不涉及真实支付或游戏道具发放。</p><div class="modal-actions"><button class="secondary" data-action="close">取消</button><button class="primary" data-action="confirm-buy" data-id="${id}">确认采购</button></div>`,
   );
 }
 function compose() {
@@ -264,7 +281,11 @@ function clueModal(id) {
   );
 }
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal-backdrop")) return closeModal();
+  if (
+    e.target.classList.contains("modal-backdrop") ||
+    e.target.classList.contains("original-equipment-stage")
+  )
+    return closeModal();
   const el = e.target.closest("[data-action]");
   if (!el) return;
   const { action, id, index } = el.dataset;
@@ -310,8 +331,8 @@ document.addEventListener("click", (e) => {
   if (action === "buy") buyModal(id);
   if (action === "confirm-buy") {
     const p = products.find((x) => x.id === id);
-    if (p && (state.orders[id] || 0) < p.limit) {
-      state.orders[id] = (state.orders[id] || 0) + 1;
+    if (p && orderCount(p) < p.limit && p.available !== false) {
+      state.orders[id] = orderCount(p) + 1;
       save();
       route();
       toast("采购完成，演示订单已保存在当前浏览器");

@@ -1,0 +1,246 @@
+{
+  "source": "用户补充的九张原始装备截图，原件含游戏 UID，不发布",
+  "sources": {
+    "1": {
+      "sha256": "4b5c658c4c184c87d60650a45a77c1bd06ea34c6c41c04b7aa44bab9ebcd96bf",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "2": {
+      "sha256": "599476e76c27b9aaebb5577c93672f7292999b79e1c84e68acb5febfe5f96487",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "3": {
+      "sha256": "b2a8595f4d689d3f1d1cd323a36be2dea9905991a0da9574f9287ad74f194be7",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "4": {
+      "sha256": "e16602cd7d293374a4d10b961fbfdcd987f041b5959ba8794bac7044a582a6ef",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "5": {
+      "sha256": "305a68a6500468f737a87e578cd367b8527f1ecc6ae410426137469410ebf52b",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "6": {
+      "sha256": "ea4f72be45b9c92634f7d79bcd242349a958babe212adfbb696687b73559e4a9",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "7": {
+      "sha256": "9aefa1105539b65e7d9f83d307960991ac18cdc42fe9c33fb3d00b7498563469",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "8": {
+      "sha256": "5a6e3696ebde38fc814ff12a1ddde4252508381279fa9514b923bef95cc0612b",
+      "size": [
+        1280,
+        889
+      ]
+    },
+    "9": {
+      "sha256": "8fd0e2d669f73c88bf62cc902a2cb891d712e1eb74051137e8cfde7d0cb59e82",
+      "size": [
+        1280,
+        889
+      ]
+    }
+  },
+  "crops": {
+    "banner-mhs-original.png": {
+      "source": 1,
+      "crop": [
+        353,
+        120,
+        1262,
+        289
+      ]
+    },
+    "banner-turing-original.png": {
+      "source": 2,
+      "crop": [
+        353,
+        120,
+        1262,
+        289
+      ]
+    },
+    "banner-hvk-uploaded.png": {
+      "source": 3,
+      "crop": [
+        353,
+        120,
+        1262,
+        289
+      ]
+    },
+    "detail-assault-original.png": {
+      "source": 4,
+      "crop": [
+        0,
+        72,
+        402,
+        858
+      ]
+    },
+    "detail-hvk-original.png": {
+      "source": 5,
+      "crop": [
+        0,
+        72,
+        402,
+        858
+      ]
+    },
+    "detail-hmp-original.png": {
+      "source": 6,
+      "crop": [
+        0,
+        186,
+        402,
+        858
+      ]
+    },
+    "detail-hls-original.png": {
+      "source": 7,
+      "crop": [
+        0,
+        323,
+        402,
+        858
+      ]
+    },
+    "detail-mhs-original.png": {
+      "source": 8,
+      "crop": [
+        0,
+        72,
+        402,
+        858
+      ]
+    },
+    "detail-h09-original.png": {
+      "source": 9,
+      "crop": [
+        0,
+        72,
+        402,
+        858
+      ]
+    },
+    "row-hls-original.png": {
+      "source": 1,
+      "crop": [
+        353,
+        309,
+        1242,
+        439
+      ]
+    },
+    "item-hls-original.png": {
+      "source": 1,
+      "crop": [
+        360,
+        319,
+        468,
+        430
+      ]
+    },
+    "row-hmp-original.png": {
+      "source": 1,
+      "crop": [
+        353,
+        449,
+        1242,
+        579
+      ]
+    },
+    "item-hmp-original.png": {
+      "source": 1,
+      "crop": [
+        360,
+        459,
+        468,
+        570
+      ]
+    },
+    "row-hvk-original.png": {
+      "source": 1,
+      "crop": [
+        353,
+        589,
+        1242,
+        719
+      ]
+    },
+    "item-hvk-original.png": {
+      "source": 1,
+      "crop": [
+        360,
+        599,
+        468,
+        710
+      ]
+    },
+    "row-assault-original.png": {
+      "source": 1,
+      "crop": [
+        353,
+        729,
+        1242,
+        859
+      ]
+    },
+    "item-assault-original.png": {
+      "source": 1,
+      "crop": [
+        360,
+        739,
+        468,
+        850
+      ]
+    }
+  },
+  "shell": {
+    "source": 1,
+    "crop": [
+      0,
+      48,
+      1280,
+      858
+    ],
+    "excluded_hud": [
+      [
+        1070,
+        63,
+        1280,
+        110
+      ],
+      [
+        0,
+        728,
+        57,
+        824
+      ]
+    ]
+  }
+}
