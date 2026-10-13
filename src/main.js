@@ -61,18 +61,14 @@ function toast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove("show"), 3400);
 }
-function avatar(type = "blue") {
-  if (type === "claire")
-    return `<span class="avatar"><img src="${asset("staff-claire.webp")}" alt=""></span>`;
+function avatar(type = "") {
   if (type === "brand")
     return `<span class="avatar brand-avatar"><span class="brand-image" aria-hidden="true"></span></span>`;
-  if (type === "soldier")
-    return `<span class="avatar soldier-avatar" style="background-image:url('${asset("voices.webp")}')"></span>`;
-  const types = { bear: 0, red: 1, green: 2, gold: 3, orange: 4, blue: 5 };
-  return `<span class="avatar abstract-avatar avatar-${types[type] ?? 5}">${icon(["paw-print", "shield-chevron", "plant", "planet", "coffee", "snowflake"][types[type] ?? 5])}</span>`;
+  const original = ["claire", "bear", "red", "soldier", "blue"].includes(type);
+  return `<span class="avatar">${original ? `<img src="${asset(`avatar-${type}.png`)}" alt="">` : ""}</span>`;
 }
 function header(page) {
-  return `<header class="site-header"><a href="#about" class="brand" aria-label="哈夫克集团首页"><span class="brand-image" role="img" aria-label="HAAVK"></span></a><nav aria-label="主导航">${[
+  return `<header class="site-header ${page === "about" ? "original-header" : ""}"><a href="#about" class="brand" aria-label="哈夫克集团首页"><span class="brand-image" role="img" aria-label="HAAVK"></span></a><nav aria-label="主导航">${[
     ["about", "关于我们"],
     ["forum", "员工论坛"],
     ["solutions", "解决方案"],
@@ -82,34 +78,24 @@ function header(page) {
       ([id, label]) =>
         `<a href="#${id}" ${page === id ? 'aria-current="page"' : ""}>${label}</a>`,
     )
-    .join(
-      "",
-    )}</nav><span class="header-decoration" aria-hidden="true">HAAVK CORPORATION <span>▥</span></span></header>`;
-}
-function footer() {
-  return `<footer class="site-footer"><span>HAAVK CORPORATION</span><span>秩序 · 效率 · 进步</span><button data-action="credits">关于本站 ${icon("arrow-up-right")}</button></footer>`;
+    .join("")}</nav></header>`;
 }
 function dots(items, active, action) {
-  return `<div class="carousel-dots" aria-label="轮播切换">${items.map((_, i) => `<button class="${i === active ? "active" : ""}" data-action="${action}" data-index="${i}" aria-label="第 ${i + 1} 张：${esc(items[i].title)}" aria-pressed="${i === active}"></button>`).join("")}</div>`;
+  return `<div class="carousel-dots" aria-label="轮播切换">${items.map((item, i) => `<button class="${i === active ? "active" : ""}" data-action="${action}" data-index="${i}" aria-label="第 ${i + 1} 张：${esc(item.title)}" aria-pressed="${i === active}"></button>`).join("")}</div>`;
 }
 function home() {
-  return `<main class="home-page"><section class="hero" aria-roledescription="轮播" aria-label="集团理念"><div class="hero-images">${heroes.map((h, i) => `<img class="hero-image ${i === currentHero ? "active" : ""}" src="${asset(h.image)}" alt="${h.name}的集团宣传肖像" ${i ? 'loading="eager"' : 'fetchpriority="high"'}>`).join("")}</div><div class="hero-copy" id="hero-copy">${heroCopy()}</div><div class="hero-controls">${dots(heroes, currentHero, "hero")}<button class="carousel-pause" data-action="pause-hero" aria-label="${reduced.matches ? "继续轮播" : "暂停轮播"}" aria-pressed="${reduced.matches}">${icon(reduced.matches ? "play" : "pause")}</button></div><span class="hero-micro" aria-hidden="true">PROGRESS IS OUR PURPOSE. <span>HAAVK / 2036</span></span></section><section class="people-section" aria-label="哈夫克员工"><div class="employee-group"><h2>优秀员工</h2><div class="employee-cards">${employees.map((e, i) => `<button class="employee-card" data-action="employee" data-index="${i}"><img src="${asset(e.image)}" alt="${e.name}" loading="eager"><div class="employee-name"><strong>${e.name}</strong><span>${e.role}</span></div><p>${e.quote.replaceAll("\n", "<br>")}</p><span class="card-arrow">${icon("arrow-up-right")}</span></button>`).join("")}</div></div><div class="voices-group"><h2>员工之声</h2><div class="voice-cards">${voices.map((v, i) => `<button class="voice-card" data-action="voice" data-index="${i}"><div class="voice-art" style="background-image:url('${asset("voices.webp")}');background-position:${(i * 100) / 3}% center"></div><div class="voice-name"><strong>${v.name}</strong><span>${v.role}</span></div><p>${v.quote.replaceAll("\n", "<br>")}</p></button>`).join("")}</div></div></section>${footer()}</main>`;
+  return `<main class="home-page original-home" aria-label="关于我们"><section class="original-slides" aria-label="集团宣传轮播">${heroes.map((h, i) => `<img class="original-screen ${i === currentHero ? "active" : ""}" src="${asset(h.image)}" alt="${h.name}：${h.title}，原站完整宣传画面" width="1280" height="810" ${i === 0 ? 'fetchpriority="high"' : ""}>`).join("")}</section><div id="hero-copy" class="sr-only">${heroCopy()}</div><div class="hero-controls">${dots(heroes, currentHero, "hero")}<button class="carousel-pause" data-action="pause-hero" aria-label="${reduced.matches ? "继续轮播" : "暂停轮播"}" aria-pressed="${reduced.matches}">${icon(reduced.matches ? "play" : "pause")}</button></div><section class="original-people" aria-label="优秀员工与员工之声">${employees.map((e, i) => `<button class="original-hotspot employee-hotspot employee-${i}" data-action="employee" data-index="${i}" aria-label="${e.name}：${e.quote.replaceAll("\n", "，")}"></button>`).join("")}${voices.map((v, i) => `<button class="original-hotspot voice-hotspot voice-${i}" data-action="voice" data-index="${i}" aria-label="${v.name}：${v.quote.replaceAll("\n", "，")}"></button>`).join("")}</section></main>`;
 }
 function heroCopy() {
   const h = heroes[currentHero];
-  return `<h1>${h.title}</h1><p>${h.subtitle}</p>${h.signature ? '<span class="signature" aria-hidden="true"></span>' : ""}`;
+  return `<h1>${h.title}</h1><p>${h.subtitle}</p>`;
 }
 function setHero(i) {
   currentHero = i;
   document
-    .querySelectorAll(".hero-image")
+    .querySelectorAll(".original-screen")
     .forEach((el, j) => el.classList.toggle("active", i === j));
-  const copy = $("#hero-copy");
-  if (!copy) return;
-  copy.innerHTML = heroCopy();
-  copy.classList.remove("copy-enter");
-  void copy.offsetWidth;
-  copy.classList.add("copy-enter");
+  if ($("#hero-copy")) $("#hero-copy").innerHTML = heroCopy();
   document.querySelectorAll('[data-action="hero"]').forEach((el, j) => {
     el.classList.toggle("active", i === j);
     el.setAttribute("aria-pressed", String(i === j));
@@ -145,8 +131,16 @@ function forum() {
   return `<main class="interior forum-page">${forumSidebar()}<section class="forum-content"><div class="forum-table-head"><span>标题</span><span>发帖人</span><span>回复</span><span>最后回复</span></div><div class="thread-list">${allThreads()
     .map((t) => {
       const r = repliesFor(t),
+        count =
+          (t.referenceCount ?? t.replies.length) +
+          (state.replies[t.id]?.length || 0),
+        last =
+          state.replies[t.id]?.at(-1)?.name ||
+          t.referenceLast ||
+          r.at(-1)?.name ||
+          t.author,
         read = state.read.includes(t.id);
-      return `<a href="#forum/${encodeURIComponent(t.id)}" class="thread-row ${read ? "read" : "unread"}"><span class="thread-title"><span class="read-square" aria-label="${read ? "已读" : "未读"}"></span><strong>${esc(t.title)}</strong></span><span class="thread-author">${avatar(t.avatar)}<span><strong>${esc(t.author)}</strong><span>${esc(t.dept)}</span></span></span><span class="reply-count">${read ? r.length : 0}/${r.length}</span><span class="last-reply">${esc(r.at(-1)?.name || t.author)}</span></a>`;
+      return `<a href="#forum/${encodeURIComponent(t.id)}" class="thread-row ${read ? "read" : "unread"}"><span class="thread-title"><span class="read-square" aria-label="${read ? "已读" : "未读"}"></span><strong>${esc(t.title)}</strong></span><span class="thread-author">${avatar(t.avatar)}<span><strong>${esc(t.author)}</strong><span>${esc(t.dept)}</span></span></span><span class="reply-count">${count}/${count}</span><span class="last-reply">${esc(last)}</span></a>`;
     })
     .join(
       "",
@@ -178,9 +172,7 @@ const shopSidebar = () =>
     [["truck", "军工品质", "哈夫克制品总能经受战火的考验"]],
   );
 function bannerMarkup() {
-  const b = banners[currentBanner],
-    p = products.find((p) => p.id === b.product);
-  return `<img class="banner-product" src="${asset(p.image)}" alt="${p.name}"><div class="banner-copy"><h2>${b.title}</h2><strong>${b.subtitle}</strong><div class="banner-features">${b.features.map((f) => `<div>${f[0]}<small>${f[1]}</small></div>`).join("")}</div></div>${dots(banners, currentBanner, "banner")}`;
+  return `<img class="original-product-banner" src="${asset("banner-hvk-original.png")}" alt="HVK-2防弹护甲，优秀员工最好的勋章">`;
 }
 function solutions() {
   return `<main class="interior solutions-page">${shopSidebar()}<section class="solutions-content"><div class="product-banner" aria-roledescription="轮播" aria-label="产品宣传">${bannerMarkup()}</div><div class="product-list">${products
@@ -201,7 +193,7 @@ function setBanner(i) {
   }
 }
 function wanted() {
-  return `<main class="interior wanted-page">${sidebar("寻人启事", "<p>为保障集团员工与阿萨拉地区居民安全，哈夫克集团对部分失联人员持续加以特别关注。<br>集团员工或社会人士如能提供这些失联人士的有效信息，集团会发放合理的奖励。</p><p>我们相信，每一位失联人员都有回家的权利。让我们一起献出爱心，伸出援手，帮他们早日回家。</p><p>哈夫克集团保留对“回家”的全部解释权。</p>")}<section class="wanted-cards" aria-label="失联人员"><article class="wanted-card"><div class="wanted-tag">不善言语　神出鬼没</div><img src="${asset("wanted-h42.webp")}" alt="H42失联人员肖像"><div class="wanted-name"><h2>H42</h2><p>需返回集团接受脑机康复训练</p></div><div class="wanted-reward"><span>悬赏哈夫币总额</span><strong class="number">99,999,999</strong><button data-action="clue" data-id="h42" ${state.clues.h42 ? "disabled" : ""}>${state.clues.h42 ? "已提交" : "提供线索"}</button></div></article><article class="wanted-card"><div class="wanted-tag">精瘦结实　暴躁冲动</div><img src="${asset("wanted-zoya.webp")}" alt="佐娅失联人员肖像"><div class="wanted-name"><h2>佐娅</h2><p>亟需集团帮助继续其科研工作</p></div><div class="wanted-reward"><span>举报奖励</span><strong>脑机实验受试资格</strong><button data-action="clue" data-id="zoya" ${state.clues.zoya ? "disabled" : ""}>${icon("warning")} ${state.clues.zoya ? "已提交" : "提供线索"}</button></div></article></section></main>`;
+  return `<main class="interior wanted-page">${sidebar("寻人启事", "<p>为保障集团员工与阿萨拉地区居民安全，哈夫克集团对部分失联人员持续加以特别关注。<br>集团员工或社会人士如能提供这些失联人士的有效信息，集团会发放合理的奖励。</p><p>我们相信，每一位失联人员都有回家的权利。让我们一起献出爱心，伸出援手，帮他们早日回家。</p><p>哈夫克集团保留对“回家”的全部解释权。</p>")}<section class="wanted-cards" aria-label="失联人员"><article class="wanted-card"><div class="wanted-tag">不善言语　神出鬼没</div><img src="${asset("wanted-h42-original.png")}" alt="H42失联人员肖像"><div class="wanted-name"><h2>H42</h2><p>需返回集团接受脑机康复训练</p></div><div class="wanted-reward"><span>悬赏哈夫币总额</span><strong class="number">99,999,999</strong><button data-action="clue" data-id="h42" ${state.clues.h42 ? "disabled" : ""}>${state.clues.h42 ? "已提交" : "提供线索"}</button></div></article><article class="wanted-card"><div class="wanted-tag">精瘦结实　暴躁冲动</div><img src="${asset("wanted-zoya-original.png")}" alt="佐娅失联人员肖像"><div class="wanted-name"><h2>佐娅</h2><p>亟需集团帮助继续其科研工作</p></div><div class="wanted-reward"><span>举报奖励</span><strong>脑机实验受试资格</strong><button data-action="clue" data-id="zoya" ${state.clues.zoya ? "disabled" : ""}>${icon("warning")} ${state.clues.zoya ? "已提交" : "提供线索"}</button></div></article></section></main>`;
 }
 function route() {
   closeModal(false);
@@ -224,16 +216,13 @@ function route() {
           ? solutions()
           : wanted());
   document.title = `${{ about: "关于我们", forum: "员工论坛", solutions: "解决方案", wanted: "寻人启事" }[page]} · HAAVK 哈夫克集团`;
+  fitStage();
   window.scrollTo(0, 0);
   if (!reduced.matches) {
     if (page === "about")
       heroTimer = setInterval(() => {
         if (!document.hidden) setHero((currentHero + 1) % 3);
       }, 7000);
-    if (page === "solutions")
-      bannerTimer = setInterval(() => {
-        if (!document.hidden) setBanner((currentBanner + 1) % 3);
-      }, 6500);
   }
 }
 function modal(content, drawer = false) {
@@ -308,13 +297,13 @@ document.addEventListener("click", (e) => {
   if (action === "employee") {
     const p = employees[index];
     modal(
-      `<div class="profile-modal"><img src="${asset(p.image)}" alt="${p.name}"><div><span class="modal-eyebrow">EXEMPLARY EMPLOYEE</span><h2 id="modal-title">${p.name}</h2><span class="badge">${p.role}</span><blockquote>${p.quote.replaceAll("\n", "<br>")}</blockquote><p>${p.description}</p></div></div>`,
+      `<h2 id="modal-title" class="sr-only">${p.name}</h2><img class="original-card-preview" src="${asset(p.image)}" alt="${p.name}原站员工卡片">`,
     );
   }
   if (action === "voice") {
     const v = voices[index];
     modal(
-      `<span class="modal-eyebrow">VOICE OF HAAVK</span><h2 id="modal-title">${v.name} <small>${v.role}</small></h2><blockquote class="voice-quote">${v.quote.replaceAll("\n", "<br>")}</blockquote><a class="primary button-link" href="#forum">进入员工论坛 ${icon("arrow-right")}</a>`,
+      `<h2 id="modal-title" class="sr-only">${v.name}</h2><img class="original-card-preview" src="${asset(`voice-${index}-original.png`)}" alt="${v.name}原站员工之声卡片">`,
     );
   }
   if (action === "product") productModal(id);
@@ -354,7 +343,7 @@ document.addEventListener("click", (e) => {
   }
   if (action === "credits")
     modal(
-      `<span class="modal-eyebrow">ABOUT THIS WEBSITE</span><h2 id="modal-title">HAAVK · 哈夫克集团</h2><p>基于《三角洲行动》「骇爪的网上冲浪」活动的非官方网页复刻。</p><p>人物宣传图为参考重绘；页面布局、论坛文案及装备资料来自活动参考与公开资料。本站不与游戏账户连接。</p><p>论坛、收藏、采购和线索提交均为当前浏览器内的演示交互。</p><a href="https://github.com/zengyiqian2014-boop/haavk" target="_blank" rel="noopener" class="text-link">查看项目 ${icon("arrow-up-right")}</a>`,
+      `<span class="modal-eyebrow">ABOUT THIS WEBSITE</span><h2 id="modal-title">HAAVK · 哈夫克集团</h2><p>基于《三角洲行动》「骇爪的网上冲浪」活动的非官方网页复刻。</p><p>首页人物、员工卡片及签名直接取自用户提供的原始截图；其他可获得的原站素材从截图中提取。本站不与游戏账户连接。</p><p>论坛、收藏、采购和线索提交均为当前浏览器内的演示交互。</p><a href="https://github.com/zengyiqian2014-boop/haavk" target="_blank" rel="noopener" class="text-link">查看项目 ${icon("arrow-up-right")}</a>`,
     );
 });
 document.addEventListener("submit", (e) => {
@@ -432,5 +421,15 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
+function fitStage() {
+  const scale = window.innerWidth / 1280;
+  document.documentElement.style.setProperty("--stage-scale", scale);
+  document.documentElement.style.setProperty(
+    "--stage-height",
+    `${810 * scale}px`,
+  );
+}
+window.addEventListener("resize", fitStage);
+window.addEventListener("orientationchange", fitStage);
 window.addEventListener("hashchange", route);
 route();

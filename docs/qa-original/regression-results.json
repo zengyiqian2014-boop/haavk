@@ -1,0 +1,8 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "checks": [
+    "chromium: all three homepage frames match the original image pixels",
+    "chromium: navigation, profiles, replies, product drawer, purchasing and clue form pass",
+    "chromium: portrait and landscape preserve the whole composition; mobile targets work"
+  ]
+}

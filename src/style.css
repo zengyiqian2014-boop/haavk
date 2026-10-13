@@ -142,7 +142,7 @@ i.ph {
   display: block;
   width: 121px;
   height: 29px;
-  background-image: url("/assets/logo.webp");
+  background-image: url("/assets/logo-original.png");
   background-size: 1285px 605px;
   background-position: -10px 0;
   background-repeat: no-repeat;
@@ -1593,900 +1593,7 @@ i.ph {
     transform: translateX(0) rotate(-9deg);
   }
 }
-@media (min-width: 1600px) {
-  .site-header {
-    height: 112px;
-    gap: 75px;
-  }
-  .site-header nav a {
-    font-size: 23px;
-    min-width: 160px;
-  }
-  .home-page {
-    margin-top: -112px;
-  }
-  .hero-controls {
-    top: calc(48% + 140px);
-  }
-  .people-section {
-    padding-bottom: 45px;
-  }
-  .employee-card p {
-    font-size: 24px;
-  }
-  .employee-name strong {
-    font-size: 34px;
-  }
-  .voice-name strong {
-    font-size: 26px;
-  }
-  .voice-card p {
-    font-size: 14px;
-  }
-  .people-section h2 {
-    font-size: 23px;
-  }
-  .interior,
-  .thread-detail {
-    height: calc(100svh - 130px);
-  }
-  .product-banner {
-    height: 205px;
-  }
-  .banner-copy h2 {
-    font-size: 42px;
-  }
-  .product-row {
-    min-height: 145px;
-  }
-  .wanted-name h2 {
-    font-size: 54px;
-  }
-  .wanted-reward > strong {
-    font-size: 46px;
-  }
-}
-@media (max-width: 1100px) {
-  .site-header {
-    gap: 20px;
-    padding: 0 2.5%;
-  }
-  .site-header nav {
-    gap: 0;
-  }
-  .site-header nav a {
-    min-width: 110px;
-    font-size: 17px;
-  }
-  .header-decoration {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-  .hero {
-    min-height: 410px;
-  }
-  .hero-copy h1 {
-    font-size: 42px;
-  }
-  .signature {
-    left: 75%;
-    transform: scale(0.8);
-    transform-origin: 0 0;
-  }
-  .hero-controls {
-    top: calc(48% + 96px);
-  }
-  .interior {
-    grid-template-columns: 25% minmax(0, 1fr);
-    gap: 12px;
-  }
-  .sidebar-body,
-  .wanted-page .sidebar-body {
-    font-size: 16px;
-  }
-  .principle {
-    gap: 10px;
-    padding: 13px 8px;
-  }
-  .principle i {
-    font-size: 27px;
-  }
-  .principle strong {
-    font-size: 16px;
-  }
-  .principle p {
-    font-size: 13px;
-  }
-  .thread-row,
-  .forum-table-head {
-    padding-left: 18px;
-    grid-template-columns: 43% 31% 12% 14%;
-  }
-  .thread-title strong {
-    font-size: 15px;
-  }
-  .thread-author .avatar {
-    width: 43px;
-    height: 43px;
-  }
-  .thread-author strong {
-    font-size: 16px;
-  }
-  .thread-author span span {
-    font-size: 13px;
-  }
-  .last-reply {
-    font-size: 13px;
-  }
-  .reply-count {
-    font-size: 18px;
-  }
-  .forum-legend {
-    font-size: 13px;
-  }
-  .product-description h2 {
-    font-size: 20px;
-  }
-  .product-description p {
-    font-size: 14px;
-  }
-  .product-buy {
-    width: 125px;
-  }
-  .product-row {
-    gap: 8px;
-    padding-right: 15px;
-  }
-  .product-picture {
-    width: 75px;
-  }
-  .banner-copy h2 {
-    font-size: 29px;
-  }
-  .banner-features {
-    gap: 14px;
-  }
-  .post-author {
-    gap: 10px;
-  }
-  .post-author .avatar {
-    width: 60px;
-    height: 60px;
-  }
-  .post-author h1 {
-    font-size: 19px;
-  }
-  .post-author p {
-    font-size: 16px;
-  }
-  .permit {
-    font-size: 8px;
-  }
-  .post-body {
-    font-size: 16px;
-  }
-  .post-scroll h2 {
-    font-size: 20px;
-  }
-  .reply-person,
-  .reply p {
-    font-size: 15px;
-  }
-  .reply .avatar {
-    width: 45px;
-    height: 45px;
-  }
-  .badge {
-    font-size: 12px;
-  }
-  .wanted-cards {
-    gap: 18px;
-    padding: 0;
-  }
-  .wanted-name h2 {
-    font-size: 35px;
-  }
-  .wanted-name p {
-    font-size: 12px;
-  }
-  .wanted-reward > span {
-    font-size: 18px;
-  }
-  .wanted-reward > strong {
-    font-size: 28px;
-  }
-  .wanted-reward .number {
-    font-size: 36px;
-  }
-  .wanted-tag {
-    font-size: 12px;
-  }
-  .wanted-reward button {
-    font-size: 16px;
-    height: 40px;
-  }
-}
-@media (max-width: 760px) {
-  .site-header {
-    height: 105px;
-    padding: 13px 18px 0;
-    display: block;
-    background: #d5e0e999;
-  }
-  .brand {
-    width: 104px;
-    height: 28px;
-  }
-  .brand-image {
-    transform: scale(0.86);
-    transform-origin: left center;
-  }
-  .header-decoration {
-    position: absolute;
-    top: 25px;
-    right: 20px;
-    font-size: 7px;
-  }
-  .site-header nav {
-    height: 56px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 0;
-  }
-  .site-header nav a {
-    font-size: 15px;
-    padding: 13px 4px;
-    min-width: 0;
-    flex: 1;
-  }
-  .site-header nav a[aria-current]:after {
-    left: 20px;
-    right: 20px;
-    bottom: 5px;
-  }
-  .home-page {
-    margin-top: 0;
-  }
-  .hero {
-    height: 520px;
-    min-height: 0;
-    max-height: none;
-  }
-  .hero-image {
-    object-fit: cover;
-    object-position: 64% 50%;
-    width: 160%;
-    max-width: none;
-    left: -42%;
-    height: 100%;
-    opacity: 0;
-    transform: scale(1.035);
-  }
-  .hero-copy {
-    top: 39px;
-    left: 22px;
-    max-width: 90%;
-  }
-  .hero-copy h1 {
-    font-size: 33px;
-    letter-spacing: -1.4px;
-  }
-  .hero-copy p {
-    font-size: 12px;
-    max-width: 310px;
-    line-height: 1.6;
-    margin-top: 9px;
-  }
-  .hero-controls {
-    left: 23px;
-    top: 131px;
-  }
-  .carousel-dots button {
-    height: 13px;
-    width: 13px;
-  }
-  .signature {
-    display: none;
-  }
-  .hero-micro {
-    bottom: 28px;
-    left: 22px;
-    font-size: 7px;
-    color: #d3e6f4;
-    opacity: 0.6;
-  }
-  .hero-micro span {
-    margin-left: 12px;
-  }
-  .people-section {
-    grid-template-columns: 1fr;
-    padding: 0 18px 23px;
-    gap: 50px;
-  }
-  .people-section h2 {
-    font-size: 17px;
-    bottom: calc(100% + 8px);
-  }
-  .employee-group h2 {
-    color: #f2f6fa;
-  }
-  .employee-card {
-    aspect-ratio: 0.93;
-  }
-  .employee-name strong {
-    font-size: 24px;
-  }
-  .employee-name span {
-    font-size: 8px;
-  }
-  .employee-card p {
-    font-size: 15px;
-    bottom: 7%;
-  }
-  .voices-group h2 {
-    bottom: calc(100% + 8px);
-  }
-  .voice-cards {
-    height: 185px;
-  }
-  .voice-name strong {
-    font-size: 17px;
-  }
-  .voice-name span {
-    font-size: 7px;
-  }
-  .voice-card p {
-    font-size: 8px;
-    left: 7%;
-    right: 3%;
-  }
-  .site-footer {
-    padding: 12px 18px;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 7px;
-  }
-  .site-footer > span:nth-child(2) {
-    display: none;
-  }
-  .site-footer button {
-    font-size: 9px;
-  }
-  .interior {
-    height: auto;
-    min-height: calc(100svh - 105px);
-    padding: 8px 12px 25px;
-    display: block;
-  }
-  .sidebar {
-    padding: 18px 15px;
-    margin-bottom: 14px;
-    overflow: visible;
-    min-height: 0;
-  }
-  .section-title {
-    font-size: 20px;
-    padding-bottom: 9px;
-  }
-  .sidebar-body {
-    font-size: 14px;
-    margin-top: 13px;
-    line-height: 1.6;
-  }
-  .sidebar-body p {
-    margin: 0 0 15px;
-  }
-  .sidebar-body p:last-child {
-    margin: 0;
-  }
-  .principle-cards {
-    margin-top: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 6px;
-  }
-  .principle {
-    display: block;
-    padding: 10px 8px;
-  }
-  .principle i {
-    font-size: 23px;
-    margin: 0 0 6px;
-    display: block;
-  }
-  .principle strong {
-    font-size: 13px;
-    white-space: nowrap;
-  }
-  .principle p {
-    font-size: 11px;
-    line-height: 1.55;
-    margin-top: 4px;
-  }
-  .sidebar-micro {
-    display: none;
-  }
-  .post-button {
-    margin-top: 15px;
-    top: 0;
-    font-size: 17px;
-    min-height: 38px;
-  }
-  .forum-table-head {
-    height: 39px;
-    padding: 0 10px;
-    grid-template-columns: 1fr 55px;
-    font-size: 13px;
-    border-bottom-width: 2px;
-  }
-  .forum-table-head span:nth-child(2),
-  .forum-table-head span:nth-child(4) {
-    display: none;
-  }
-  .thread-list {
-    padding: 0;
-    overflow: visible;
-  }
-  .thread-row {
-    height: auto;
-    min-height: 110px;
-    padding: 16px 10px;
-    grid-template-columns: 1fr 55px;
-    position: relative;
-    gap: 10px;
-    align-items: start;
-  }
-  .thread-title {
-    grid-column: 1;
-    grid-row: 1;
-    padding: 0;
-    gap: 8px;
-  }
-  .thread-title strong {
-    font-size: 15px;
-    line-height: 1.5;
-    white-space: normal;
-  }
-  .read-square {
-    width: 12px;
-    height: 12px;
-    border-width: 2px;
-    margin-top: 5px;
-  }
-  .thread-author {
-    grid-column: 1;
-    grid-row: 2;
-    padding-left: 20px;
-    gap: 8px;
-  }
-  .thread-author .avatar {
-    width: 30px;
-    height: 30px;
-  }
-  .thread-author > span:last-child {
-    display: flex;
-    gap: 7px;
-    align-items: center;
-  }
-  .thread-author strong {
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .thread-author span span {
-    font-size: 10px;
-    color: #778793;
-  }
-  .last-reply {
-    display: none;
-  }
-  .reply-count {
-    grid-column: 2;
-    grid-row: 1/3;
-    align-self: center;
-    text-align: right;
-    font-size: 17px;
-    color: #536e83;
-  }
-  .forum-legend {
-    font-size: 10px;
-    gap: 4px;
-    min-height: 34px;
-    margin-top: 13px;
-  }
-  .forum-legend > span,
-  .forum-legend > button {
-    gap: 4px;
-  }
-  .forum-legend .read-square {
-    width: 10px;
-    height: 10px;
-    margin-top: 0;
-  }
-  .forum-legend > span:first-child {
-    display: none;
-  }
-  .thread-detail {
-    height: auto;
-    min-height: 0;
-    margin: 8px 12px 20px;
-    display: block;
-  }
-  .post-panel {
-    padding: 18px 15px 0;
-    border-right: 0;
-  }
-  .post-author .avatar {
-    width: 59px;
-    height: 59px;
-  }
-  .post-author h1 {
-    font-size: 18px;
-  }
-  .post-author p {
-    font-size: 14px;
-  }
-  .permit {
-    font-size: 8px;
-  }
-  .post-scroll {
-    max-height: 65svh;
-    padding-top: 16px;
-  }
-  .post-scroll h2 {
-    font-size: 19px;
-    margin-bottom: 17px;
-  }
-  .post-body {
-    font-size: 15px;
-  }
-  .post-body p {
-    line-height: 1.85;
-  }
-  .post-meta {
-    font-size: 12px;
-    gap: 18px;
-    min-height: 34px;
-  }
-  .reply-panel {
-    padding: 15px;
-  }
-  .reply-heading a {
-    font-size: 12px;
-  }
-  .replies {
-    overflow: visible;
-  }
-  .reply {
-    padding: 16px 0;
-    gap: 9px;
-  }
-  .reply-person {
-    gap: 3px 6px;
-    font-size: 13px;
-  }
-  .reply-person .badge {
-    font-size: 10px;
-    padding: 3px 6px;
-  }
-  .reply p {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-  .reply time {
-    font-size: 13px;
-  }
-  .reply .avatar {
-    width: 38px;
-    height: 38px;
-  }
-  .reply-form {
-    padding: 8px;
-    gap: 7px;
-    position: sticky;
-    bottom: 0;
-    background: #e8f0f6;
-    z-index: 2;
-    margin-top: 15px;
-  }
-  .reply-form input {
-    font-size: 14px;
-    height: 40px;
-  }
-  .reply-user {
-    font-size: 28px;
-  }
-  .reply-form button {
-    font-size: 18px;
-    padding: 4px;
-  }
-  .solutions-page .principle-cards {
-    grid-template-columns: 1fr;
-    margin-top: 10px;
-  }
-  .solutions-page .principle {
-    display: flex;
-    padding: 10px;
-    gap: 12px;
-  }
-  .solutions-page .principle i {
-    margin: 0;
-  }
-  .solutions-page .principle strong {
-    font-size: 14px;
-  }
-  .solutions-page .principle p {
-    font-size: 12px;
-  }
-  .solutions-page .sidebar-body p {
-    display: none;
-  }
-  .solutions-page .sidebar-body p:first-child {
-    display: block;
-    font-size: 13px;
-  }
-  .product-banner {
-    height: 152px;
-  }
-  .banner-copy {
-    top: 17px;
-    right: 12px;
-    width: 68%;
-  }
-  .banner-copy h2 {
-    font-size: 24px;
-  }
-  .banner-copy > strong {
-    font-size: 12px;
-    margin-top: 5px;
-  }
-  .banner-features {
-    gap: 12px;
-    margin-top: 23px;
-    font-size: 8px;
-  }
-  .banner-features small {
-    display: none;
-  }
-  .banner-product {
-    width: 45%;
-    height: 130%;
-    top: -8%;
-    left: -2%;
-  }
-  .product-banner .carousel-dots {
-    left: 13%;
-    bottom: 11px;
-    gap: 8px;
-  }
-  .product-banner .carousel-dots button {
-    width: 10px;
-    height: 10px;
-  }
-  .product-list {
-    padding: 0;
-    margin-top: 12px;
-    overflow: visible;
-    gap: 8px;
-  }
-  .product-row {
-    padding: 13px 10px 12px;
-    gap: 9px;
-    min-height: 141px;
-    position: relative;
-    align-items: flex-start;
-  }
-  .product-picture {
-    width: 71px;
-    height: 92px;
-    align-self: center;
-    padding: 0;
-  }
-  .product-description {
-    padding-bottom: 29px;
-  }
-  .product-description h2 {
-    font-size: 17px;
-    display: block;
-    line-height: 1.4;
-  }
-  .product-description h2 span {
-    display: block;
-    font-size: 11px;
-    margin-top: 3px;
-  }
-  .product-description p {
-    font-size: 12px;
-    margin-top: 4px;
-    white-space: normal;
-    line-height: 1.55;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  .detail-link {
-    position: absolute;
-    bottom: 16px;
-    left: 90px;
-    font-size: 12px;
-  }
-  .product-buy {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: auto;
-    position: absolute;
-    right: 12px;
-    bottom: 12px;
-  }
-  .product-buy > span {
-    font-size: 12px;
-    margin: 0;
-  }
-  .product-buy .primary {
-    font-size: 13px;
-    width: 65px;
-    min-height: 28px;
-    padding: 4px 8px;
-  }
-  .wanted-page .sidebar-body {
-    font-size: 14px;
-  }
-  .wanted-page .sidebar-body p {
-    margin-bottom: 13px;
-  }
-  .wanted-page .sidebar-body p:last-child {
-    font-size: 12px;
-    margin: 0;
-  }
-  .wanted-cards {
-    gap: 15px;
-    grid-template-columns: 1fr;
-    padding: 0 6px;
-  }
-  .wanted-card {
-    aspect-ratio: 0.86;
-    max-width: 490px;
-    width: 100%;
-    margin: auto;
-  }
-  .wanted-name h2 {
-    font-size: 41px;
-  }
-  .wanted-name p {
-    font-size: 13px;
-  }
-  .wanted-reward > span {
-    font-size: 19px;
-  }
-  .wanted-reward > strong {
-    font-size: 31px;
-    margin-bottom: 26px;
-    letter-spacing: -1px;
-  }
-  .wanted-reward .number {
-    font-size: 44px;
-  }
-  .wanted-reward button {
-    height: 43px;
-    font-size: 17px;
-  }
-  .wanted-tag {
-    font-size: 13px;
-    height: 44px;
-  }
-  .wanted-card > img {
-    inset: 44px 0 0;
-    height: calc(100% - 44px);
-  }
-  .modal-backdrop {
-    padding: 16px;
-  }
-  .modal {
-    padding: 29px 23px;
-    max-height: 90svh;
-  }
-  .modal h2 {
-    font-size: 23px;
-  }
-  .profile-modal {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .profile-modal > img {
-    height: 260px;
-    width: 100%;
-    object-position: center 24%;
-  }
-  .profile-modal blockquote {
-    margin: 18px 0;
-    font-size: 24px;
-  }
-  .profile-modal p {
-    margin-bottom: 0;
-  }
-  .voice-quote {
-    font-size: 27px;
-  }
-  .drawer-backdrop {
-    padding: 0;
-    justify-content: flex-start;
-  }
-  .product-drawer {
-    max-width: 88vw;
-    width: 380px;
-    padding: 0;
-    height: 100svh;
-    max-height: 100svh;
-  }
-  .drawer-title {
-    padding: 11px 38px 11px 12px;
-  }
-  .drawer-title h2 {
-    font-size: 19px;
-    margin: 0;
-  }
-  .product-drawer .modal-close {
-    top: 8px;
-  }
-  .drawer-image {
-    height: 220px;
-  }
-  .drawer-body dl > div {
-    font-size: 15px;
-    padding: 16px 0;
-  }
-  .drawer-body p {
-    font-size: 15px;
-  }
-  .order-summary {
-    gap: 15px;
-    padding: 10px;
-  }
-  .order-summary img {
-    width: 85px;
-    height: 110px;
-  }
-  .order-summary h3 {
-    font-size: 18px;
-  }
-  .order-summary p {
-    font-size: 15px;
-  }
-  #toast {
-    font-size: 13px;
-    width: max-content;
-    padding: 12px 18px;
-    bottom: 20px;
-  }
-}
-@media (max-width: 380px) {
-  .hero-copy h1 {
-    font-size: 29px;
-  }
-  .thread-author > span:last-child {
-    display: block;
-  }
-  .employee-name strong {
-    font-size: 21px;
-  }
-  .employee-card p {
-    font-size: 14px;
-  }
-  .voice-card p {
-    font-size: 7px;
-  }
-  .wanted-reward > strong {
-    font-size: 29px;
-  }
-  .product-buy > span {
-    font-size: 11px;
-  }
-  .detail-link {
-    left: 89px;
-    font-size: 11px;
-  }
-}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *:before,
@@ -2500,30 +1607,7 @@ i.ph {
   }
 }
 /* Keep the entire character inside the hero, as in the reference. */
-@media (min-width: 761px) {
-  .hero-image {
-    width: 100%;
-    height: 112%;
-    top: 0;
-    object-fit: contain;
-    object-position: right top;
-  }
-  .hero {
-    background: #d0d9e3;
-  }
-  .signature {
-    left: 100%;
-    top: 5px;
-    transform: scale(0.85);
-    transform-origin: left center;
-  }
-  .hero-copy {
-    max-width: 52%;
-  }
-  .hero-copy h1 {
-    letter-spacing: -1.5px;
-  }
-}
+
 .hero:after {
   content: "";
   position: absolute;
@@ -2554,7 +1638,7 @@ i.ph {
 }
 .brand-image {
   height: 43px;
-  background-image: url("/assets/logo.webp");
+  background-image: url("/assets/logo-original.png");
   background-size: contain;
   background-position: center;
   mix-blend-mode: normal;
@@ -2595,47 +1679,7 @@ i.ph {
   );
   opacity: 0.65;
 }
-@media (max-width: 760px) {
-  .hero {
-    height: 620px;
-    background: #d0d9e3;
-  }
-  .hero-image {
-    top: 153px;
-    height: 467px;
-  }
-  .hero-images:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 152px;
-    height: 72px;
-    background: linear-gradient(#d0d9e3, transparent);
-    pointer-events: none;
-  }
-  .hero-copy {
-    top: 28px;
-  }
-  .hero-controls {
-    top: 119px;
-  }
-  .hero-micro {
-    bottom: 42px;
-  }
-  .wanted-card:after {
-    top: 44px;
-  }
-  .brand-image {
-    height: 37px;
-  }
-}
 
-@media (min-width: 761px) {
-  .hero-image {
-    mask-image: linear-gradient(to right, transparent 25%, #000 51%);
-  }
-}
 .hero-copy {
   mix-blend-mode: darken;
 }
@@ -2644,4 +1688,339 @@ i.ph {
 }
 .voices-group h2 {
   text-shadow: 0 1px 4px #15212b88;
+}
+/* The original website uses a fixed landscape composition. Scale the complete
+   canvas on smaller screens rather than independently cropping its layers. */
+:root {
+  --stage-scale: 1;
+  --stage-height: 810px;
+  background: #1e1e1e;
+}
+body {
+  min-width: 0;
+  background: #1e1e1e;
+}
+#app {
+  position: relative;
+  width: 1280px;
+  height: 810px;
+  min-height: 0;
+  transform: scale(var(--stage-scale));
+  transform-origin: top left;
+  background: linear-gradient(145deg, #c6d4e5, #e8ecf0 65%, #f0f0ee);
+}
+#app-shell {
+  width: 100%;
+  height: var(--stage-height);
+  overflow: hidden;
+}
+.site-header {
+  height: 72px;
+  padding: 0 16px;
+  gap: 44px;
+}
+.brand {
+  width: 115px;
+}
+.brand-image {
+  width: 115px;
+  height: 35px;
+  background: url("/assets/logo-original.png") center / contain no-repeat;
+  mix-blend-mode: multiply;
+}
+.site-header nav {
+  gap: 0;
+}
+.site-header nav a {
+  width: 150px;
+  min-width: 0;
+  font-size: 19px;
+  padding: 17px 0;
+}
+.site-header nav a[aria-current]:after {
+  display: none;
+}
+.original-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+}
+.original-header a {
+  color: transparent !important;
+}
+.original-header .brand-image {
+  opacity: 0;
+}
+.original-header nav a:hover {
+  background: #ffffff12;
+}
+.original-home {
+  position: absolute;
+  inset: 0;
+  width: 1280px;
+  height: 810px;
+  margin: 0;
+}
+.original-slides {
+  position: absolute;
+  inset: 0;
+}
+.original-screen {
+  position: absolute;
+  inset: 0;
+  width: 1280px;
+  height: 810px;
+  max-width: none;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+.original-screen.active {
+  opacity: 1;
+}
+.original-home .hero-controls {
+  top: 326px;
+  left: 53px;
+  gap: 0;
+  z-index: 4;
+}
+.original-home .carousel-dots {
+  gap: 0;
+}
+.original-home .carousel-dots button {
+  width: 27px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.original-home .carousel-pause {
+  opacity: 0;
+  width: 32px;
+  height: 36px;
+}
+.original-home .hero-controls:hover .carousel-pause,
+.original-home .carousel-pause:focus-visible {
+  opacity: 0.75;
+}
+.original-hotspot {
+  position: absolute;
+  padding: 0;
+  background: transparent;
+  z-index: 3;
+}
+.original-hotspot:hover {
+  box-shadow: inset 0 0 0 1px #86ceee55;
+}
+.employee-hotspot {
+  top: 510px;
+  width: 268px;
+  height: 260px;
+}
+.employee-0 {
+  left: 63px;
+}
+.employee-1 {
+  left: 339px;
+}
+.voice-hotspot {
+  top: 541px;
+  width: 133px;
+  height: 229px;
+}
+.voice-0 {
+  left: 681px;
+}
+.voice-1 {
+  left: 817px;
+}
+.voice-2 {
+  left: 954px;
+}
+.voice-3 {
+  left: 1089px;
+}
+.interior {
+  height: 738px;
+  min-height: 0;
+  padding: 0 16px;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 17px;
+  animation: none;
+}
+.sidebar {
+  padding: 22px 11px 70px;
+  background: #f7f9fc77;
+}
+.sidebar-body {
+  font-size: 18px;
+}
+.sidebar-micro {
+  display: none;
+}
+.section-title {
+  font-size: 23px;
+}
+.product-banner {
+  height: 169px;
+}
+.product-banner:before {
+  display: none;
+}
+.original-product-banner {
+  width: 100%;
+  height: 100%;
+}
+.product-list {
+  margin-top: 20px;
+}
+.product-row {
+  min-height: 130px;
+  background: #f7f9fb88;
+}
+.product-picture img {
+  object-fit: contain;
+}
+.thread-row {
+  height: 100px;
+  min-height: 100px;
+}
+.forum-table-head {
+  height: 55px;
+}
+.thread-detail {
+  height: 738px;
+  min-height: 0;
+  margin: 0 16px;
+  animation: none;
+}
+.thread-title strong {
+  font-size: 18px;
+}
+.avatar {
+  background: transparent;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transform: none;
+}
+.brand-avatar .brand-image {
+  width: 54px;
+  height: 54px;
+  background-size: auto 54px;
+  background-position: left center;
+}
+.wanted-cards {
+  padding: 0 13px 0 6px;
+}
+.wanted-card > img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.wanted-card:after {
+  display: none;
+}
+.wanted-tag {
+  position: relative;
+  z-index: 2;
+}
+.wanted-name,
+.wanted-reward > span,
+.wanted-reward > strong {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+.wanted-reward button {
+  width: 67%;
+  opacity: 1;
+}
+.profile-modal > img {
+  height: auto;
+  object-fit: contain;
+}
+.modal-backdrop {
+  backdrop-filter: none;
+}
+#toast {
+  max-width: calc(100vw - 24px);
+}
+@media (max-width: 760px) {
+  .modal-backdrop {
+    padding: 16px;
+  }
+  .modal {
+    padding: 29px 23px;
+    max-height: 90svh;
+  }
+  .modal h2 {
+    font-size: 23px;
+  }
+  .profile-modal {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .profile-modal > img {
+    max-height: 300px;
+    width: 100%;
+  }
+  .drawer-backdrop {
+    padding: 0;
+  }
+  .product-drawer {
+    width: min(402px, 90vw);
+    height: 100svh;
+    max-height: 100svh;
+    padding: 0;
+  }
+  .drawer-title h2 {
+    font-size: 19px;
+    margin: 0;
+  }
+  .drawer-body dl > div {
+    font-size: 15px;
+  }
+  .order-summary {
+    gap: 10px;
+  }
+  .order-summary img {
+    width: 75px;
+  }
+  #toast {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+.forum-page .sidebar-body p:first-child {
+  min-height: 113px;
+}
+.forum-page .sidebar {
+  padding-bottom: 3px;
+}
+.post-button {
+  top: 0;
+  min-height: 48px;
+}
+.thread-row {
+  padding-left: 50px;
+  grid-template-columns: 350px 280px 100px 1fr;
+}
+.thread-row:first-child {
+  height: 118px;
+  min-height: 118px;
+}
+.forum-table-head {
+  padding-left: 80px;
+  grid-template-columns: 320px 280px 100px 1fr;
+}
+
+.original-card-preview {
+  width: 100%;
+  max-height: 76svh;
+  object-fit: contain;
 }

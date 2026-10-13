@@ -1,0 +1,74 @@
+{
+  "hudson": {
+    "source": "用户本次上传的 hudson 原截图（原文件不发布，含游戏 UID）",
+    "sha256": "314be932bff19161df4df41442ab4f889071851ee56866323a489477c6fbdf5a",
+    "crop": [
+      0,
+      48,
+      1280,
+      858
+    ],
+    "hud_mask": [
+      1070,
+      63,
+      1280,
+      110
+    ],
+    "red_strip_mask": [
+      0,
+      728,
+      57,
+      824
+    ],
+    "asset": "public/assets/home-hudson-original.png",
+    "hud_removal": "只在注意力点数区域按上下边缘原像素插值补齐背景"
+  },
+  "demulan": {
+    "source": "用户本次上传的 demulan 原截图（原文件不发布，含游戏 UID）",
+    "sha256": "b1ca953a15c19a9c1d605be9a3c5d8506bcedcbfbf2143ba0bf824ee76365752",
+    "crop": [
+      0,
+      48,
+      1280,
+      858
+    ],
+    "hud_mask": [
+      1070,
+      63,
+      1280,
+      110
+    ],
+    "red_strip_mask": [
+      0,
+      728,
+      57,
+      824
+    ],
+    "asset": "public/assets/home-demulan-original.png",
+    "hud_removal": "只在注意力点数区域按上下边缘原像素插值补齐背景"
+  },
+  "mandel": {
+    "source": "用户本次上传的 mandel 原截图（原文件不发布，含游戏 UID）",
+    "sha256": "b86ed5b43a54ae906088a4a87e977cb2adeeb23abf4764ac7e94a9f651f4c887",
+    "crop": [
+      0,
+      48,
+      1280,
+      858
+    ],
+    "hud_mask": [
+      1070,
+      63,
+      1280,
+      110
+    ],
+    "red_strip_mask": [
+      0,
+      728,
+      57,
+      824
+    ],
+    "asset": "public/assets/home-mandel-original.png",
+    "hud_removal": "只在注意力点数区域按上下边缘原像素插值补齐背景"
+  }
+}
