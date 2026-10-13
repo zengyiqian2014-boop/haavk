@@ -56,6 +56,7 @@ with sync_playwright() as p:
             assert abs(box['width']-402*width/1280)<1
             assert box['x']>=0 and box['x']+box['width']<=width+1
             page.locator('.original-equipment-backdrop').evaluate('(el)=>el.scrollTop=el.scrollHeight')
+            page.wait_for_timeout(60)  # Deferred focus must not jump back to the panel header.
             box=page.locator('.original-equipment-modal').bounding_box()
             assert box['y']+box['height']<=height+1,(id,width,'detail bottom unreachable')
             page.get_by_role('button',name='关闭').click()

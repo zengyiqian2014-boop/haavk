@@ -254,7 +254,7 @@ function productModal(id) {
     $("#overlay-root").innerHTML =
       `<div class="modal-backdrop original-equipment-backdrop"><div class="original-equipment-viewport"><div class="original-equipment-stage"><section class="modal original-equipment-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-product-id="${p.id}" style="top:${p.detailTop}px;height:${p.detailHeight}px"><img class="original-equipment-image" src="${asset(p.detailImage)}" width="402" height="${p.detailHeight}" alt="${p.detailName}原版详情：估价${p.referenceValue}，重量${p.weight}KG${p.durability ? `，耐久度${p.durability}` : ""}"><h2 id="modal-title" class="sr-only">${p.detailName}</h2><div class="sr-only"><span class="durability">${p.durability ? `${p.durability.toFixed(1)}/${p.durability.toFixed(1)}` : ""}</span>${p.stats.map(([k, v]) => `<p>${k}：${v}</p>`).join("")}</div><button class="modal-close original-panel-close" data-action="close" aria-label="关闭"></button><button class="original-panel-favorite" data-action="favorite" data-id="${p.id}" aria-label="收藏物品" aria-pressed="${state.favorites.includes(id)}"></button><button class="original-panel-source" data-action="source" data-id="${p.id}" aria-label="查看${p.name}来源"></button></section></div></div></div>`;
     document.body.classList.add("modal-open");
-    setTimeout(() => $(".original-panel-close")?.focus(), 20);
+    $(".original-panel-close")?.focus({ preventScroll: true });
     return;
   }
   modal(
